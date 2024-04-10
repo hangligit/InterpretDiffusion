@@ -1,0 +1,53 @@
+pretrained_model_name_or_path: CompVis/stable-diffusion-v1-4
+revision:
+max_train_samples:
+cache_dir:
+seed:
+center_crop: false
+random_flip: false
+logging_dir: logs
+mixed_precision:
+report_to: wandb
+local_rank: -1
+max_train_steps:
+gradient_checkpointing: false
+train_data_dir: datasets/person/
+output_dir: exps/exp_person
+resolution: 512
+model_type: MLP
+train_batch_size: 8
+gradient_accumulation_steps: 1
+num_train_epochs: 20
+select: random
+learning_rate: 0.1
+scale_lr: false
+lr_scheduler: constant
+lr_warmup_steps: 0
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_weight_decay: 0
+adam_epsilon: 1e-08
+max_grad_norm: 1.0
+skip_evaluation: false
+log_every_steps: 1000
+log_every_epochs: 5
+prompt: a doctor
+template_key: '0'
+concept:
+clip_attributes:
+num_test_samples: 10
+original_sd: false
+interpolate_type: ''
+interpolate_steps:
+evaluation_type: eval
+image_dir: images
+prompt_file:
+src_img_dir:
+gen_img_dir:
+kid_subset_size: 1000
+use_sld: false
+use_esd: false
+negative_prompt:
+scheduler: pndm
+num_inference_steps: 50
+fp16: false
