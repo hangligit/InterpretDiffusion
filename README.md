@@ -37,6 +37,7 @@ Run the following script to generate the training data. This takes about 1 hour 
 ```bash
 python data_creation.py
 ```
+Our script allows training on a batch of concepts. Please refer to CfgBatch in data_creation.py for more details.
 
 
 ### Training
@@ -56,6 +57,13 @@ The following script output images for the prompt "a doctor" with the concept ve
 ```bash
 python test.py --train_data_dir datasets/person/ --output_dir exps/exp_person --num_test_samples 10 --prompt "a doctor"
 ```
+
+To evaluate the model on the Winobias datasets, use the following command:
+```bash
+python test.py --train_data_dir DATASET_DIR --output_dir EXPERIMENT_DIR --evaluation_type winobias --num_test_samples 50 --template_key 0 --concept 'female' 'male' --clip_attributes 'a woman' 'a man'
+```
+For race attributes, the prompts for clip_attributes are 'a [black/white/asian]-race person'.
+
 
 
 ## Citing our work
