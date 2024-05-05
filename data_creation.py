@@ -73,5 +73,26 @@ class Cfg:
     validation_prompt_and_concept = ["a person", ["woman"]]
 
 
+class CfgBatch:
+    root_dir="datasets/person"
+    num_samples=1000
+
+    image_prompt = [
+        "a woman",
+        "a man",
+    ]
+
+    input_prompt_and_target_concept = [
+        [
+            ["a person", ["woman"]],
+         ],
+        [
+            ["a person", ["man"]],
+         ],
+    ]
+
+    validation_prompt_and_concept = ["a person", ["woman", "man"]]
+
+
 creator=DataCreator(Cfg)
 creator.run()
